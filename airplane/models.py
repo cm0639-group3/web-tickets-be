@@ -1,5 +1,8 @@
 from django.db import models
+
 from airline.models import Airline
+
+
 # Create your models here.
 class Airplane(models.Model):
     name = models.CharField(255)

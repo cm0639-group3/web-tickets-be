@@ -1,7 +1,10 @@
 from django.db import models
+
 from airplane.models import Airplane
 from airport.models import Airport
 from luggage.models import Luggage
+
+
 # Create your models here.
 class Flight(models.Model):
     name = models.CharField(255)

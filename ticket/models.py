@@ -1,6 +1,9 @@
 from django.db import models
+
 from flight.models import Flight
 from user.models import User
+
+
 # Create your models here.
 class Ticket(models.Model):
     status = models.BooleanField(default=False)
