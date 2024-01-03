@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "0ec0efe1-d27c-4af5-8b95-34f913f83cab",
+		"name": "/api/airport/",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32063073"
+	},
+	"item": [
+		{
+			"name": "api/airport (Post)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0MzMxNDg2LCJpYXQiOjE3MDQzMjA2ODYsImp0aSI6IjE5OWU5OTA2ZWMzMzQ5OWE5MjMwMjA3ZTU1OGZmNDJmIiwidXNlcl9pZCI6NH0.pFziu_eGRARZL8Y0nfmWiKe_41mTKvY2fn9Wfil4Zrk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "n1",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "abc",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/airport/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"airport",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/airport (List)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0MzE5MDU0LCJpYXQiOjE3MDQzMDgyNTQsImp0aSI6IjhjNjY4YTEwZjZkYzQ4MTA5NTI0ODBhYjZjNjY1NzQ5IiwidXNlcl9pZCI6Mn0.ez2lpstY4CIePItd4sAmOkwVTozvsyYvDKmPcl0VNRI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/airport/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"airport",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/airport (Get)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0MzE5MDU0LCJpYXQiOjE3MDQzMDgyNTQsImp0aSI6IjhjNjY4YTEwZjZkYzQ4MTA5NTI0ODBhYjZjNjY1NzQ5IiwidXNlcl9pZCI6Mn0.ez2lpstY4CIePItd4sAmOkwVTozvsyYvDKmPcl0VNRI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/airport/2/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"airport",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/airport (Put)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0MzMxNDg2LCJpYXQiOjE3MDQzMjA2ODYsImp0aSI6IjE5OWU5OTA2ZWMzMzQ5OWE5MjMwMjA3ZTU1OGZmNDJmIiwidXNlcl9pZCI6NH0.pFziu_eGRARZL8Y0nfmWiKe_41mTKvY2fn9Wfil4Zrk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "nn",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/airport/3/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"airport",
+						"3",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/airport (Delete)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0MzMxNDg2LCJpYXQiOjE3MDQzMjA2ODYsImp0aSI6IjE5OWU5OTA2ZWMzMzQ5OWE5MjMwMjA3ZTU1OGZmNDJmIiwidXNlcl9pZCI6NH0.pFziu_eGRARZL8Y0nfmWiKe_41mTKvY2fn9Wfil4Zrk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/airport/4/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"airport",
+						"4",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

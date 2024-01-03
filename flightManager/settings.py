@@ -38,9 +38,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "user",
     'rest_framework',
     'rest_framework.authtoken',
+    # 'airline',
+    # 'airline',
+    # 'airplane',
+    'airport',
+    # 'cart',
+    'city',
+    'country',
+    # 'flight',
+    # 'luggage',
+    # 'notification',
+    # 'order',
+    # 'roles',
+    # 'ticket',
+    'user',
 ]
 
 MIDDLEWARE = [
