@@ -28,21 +28,11 @@
 		{
 			"name": "Create Luggage",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0NDczMzI0LCJpYXQiOjE3MDQ0NjI1MjQsImp0aSI6ImUwMTMxOTM4ODVkNzQ1N2ZhYjM0YmJmMjE3MDI2YjFhIiwidXNlcl9pZCI6MX0.TQDQgFzuAtYSetq_vRksiAPXz5nU34puXR3HzKRne-E",
-							"type": "string"
-						}
-					]
-				},
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0NDczMzI0LCJpYXQiOjE3MDQ0NjI1MjQsImp0aSI6ImUwMTMxOTM4ODVkNzQ1N2ZhYjM0YmJmMjE3MDI2YjFhIiwidXNlcl9pZCI6MX0.TQDQgFzuAtYSetq_vRksiAPXz5nU34puXR3HzKRne-E",
+						"value": "Bearer <token>",
 						"type": "text",
 						"disabled": true
 					}
@@ -100,7 +90,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0NDczNTU0LCJpYXQiOjE3MDQ0NjI3NTQsImp0aSI6ImQ4NTllOWE0MTQ0MzRkZmNiMjczNzZmYmEzMmIxNDY3IiwidXNlcl9pZCI6MX0.iB9DCn4am7VSxsK--Yd6yX8nFJWZMz8gSzOWYQ3uhFA",
+							"value": "<token>",
 							"type": "string"
 						}
 					]
@@ -140,7 +130,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0NDczNTU0LCJpYXQiOjE3MDQ0NjI3NTQsImp0aSI6ImQ4NTllOWE0MTQ0MzRkZmNiMjczNzZmYmEzMmIxNDY3IiwidXNlcl9pZCI6MX0.iB9DCn4am7VSxsK--Yd6yX8nFJWZMz8gSzOWYQ3uhFA",
+							"value": "<token>",
 							"type": "string"
 						}
 					]
