@@ -29,5 +29,6 @@ urlpatterns = [
     path('api/luggage/', include('luggage.urls')),
     path('api/role/', include('role.urls')),
     path('api/airline/', include('airline.urls')),
+    path('api/airplane/', include('airplane.urls')),
 
 ]
