@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'airline',
-    # 'airplane',
+    'airplane',
     'airport',
     # 'cart',
     'city',
