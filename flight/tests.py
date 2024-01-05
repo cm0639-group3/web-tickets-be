@@ -7,10 +7,10 @@ from airline.models import Airline
 from city.models import City
 from country.models import Country
 from faker import Faker
-from datetime import datetime, timedelta
+from datetime import timedelta
 from .models import Flight
 
-class FlightModelTests(TestCase):
+class FlightTests(TestCase):
 
     def setUp(self):
         self.flight_country = Country.objects.create(name="Antartida")
@@ -27,7 +27,7 @@ class FlightModelTests(TestCase):
             name='Test Airplane',
             seats=150,
             model_number='ABC123',
-            airline=self.airline  # Replace with a valid Airline instance if needed
+            airline=self.airline 
         )
 
         self.luggage = Luggage.objects.create(name='Test Luggage', size=25, unit='kg')
