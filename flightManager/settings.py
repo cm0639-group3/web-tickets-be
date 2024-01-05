@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'luggage',
     # 'notification',
     # 'order',
-    # 'roles',
+    'role',
     # 'ticket',
     'user',
 ]
