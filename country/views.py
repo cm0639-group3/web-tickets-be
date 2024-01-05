@@ -12,15 +12,3 @@ class CountryViewSet(viewsets.ModelViewSet):
     permission_classes = [CustomPermissions_1,]
 
     pagination_class = ConditionalPagination
-    
-    # # def get_queryset(self):
-    # #     queryset = Country.objects.all()
-    # #     country_id = self.request.query_params.get('country_id', None)
-    # #     country_code = self.request.query_params.get('country_code', None)
-
-    # #     if country_id is not None:
-    # #         queryset = queryset.filter(country_id=country_id)
-    # #     elif country_code is not None:
-    # #         queryset = queryset.filter(country__code2=country_code.upper())
-
-    # #     return queryset
