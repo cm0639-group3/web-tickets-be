@@ -1,0 +1,366 @@
+{
+	"info": {
+		"_postman_id": "2461ffbc-e7cb-476a-855f-4dbc35c67c93",
+		"name": "api/user & api/token",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32063073"
+	},
+	"item": [
+		{
+			"name": "/api/user/register/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "a2",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "a2@aaa.aaa",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/user/create_admin/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0MDQ2MjI4LCJpYXQiOjE3MDQwMzU0MjgsImp0aSI6ImE3YzU0ZDU4NzZjMDQxNmNiY2EyMTUyNzdiNjA5MTRmIiwidXNlcl9pZCI6MX0.d3rQ8JjCo-jtchgEGOa1fv3hFtMuJmuvvHUjaTdLKDU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "a4",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "a4@aaa.aaa",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "is_staff",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "is_superuser",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/create_admin/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"create_admin",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/user/change_password/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0MTQyNzk3LCJpYXQiOjE3MDQxMzE5OTcsImp0aSI6ImVhNzllYmRkNTcyYTQ3MTE5YTE2NzUwNzJiNWQwYzgyIiwidXNlcl9pZCI6Mn0.fpGkh_NNGhDO6qXAjkNnUcLOlEepvU_gX-ubH1MErT4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "old_password",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "new_password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/change_password/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"change_password",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/user/profile/",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0MTQyOTY5LCJpYXQiOjE3MDQxMzIxNjksImp0aSI6IjE4MWJkNDU0MTFlYjQxZmFhMDhkZDk3YWEyNTRlZTFhIiwidXNlcl9pZCI6Mn0.HqENPISMECTfnQkXhU_IzOpKdW1YSeiORXY54UxdkUM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/profile/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"profile",
+						""
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "a1@aaa.aaa",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/user/profile/ (Update)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0MTQyNzk3LCJpYXQiOjE3MDQxMzE5OTcsImp0aSI6ImVhNzllYmRkNTcyYTQ3MTE5YTE2NzUwNzJiNWQwYzgyIiwidXNlcl9pZCI6Mn0.fpGkh_NNGhDO6qXAjkNnUcLOlEepvU_gX-ubH1MErT4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "first_name",
+							"value": "FirstName2",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "LastName2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/profile/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"profile",
+						""
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "a1@aaa.aaa",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/user/allprofiles/",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0MTQyNzk3LCJpYXQiOjE3MDQxMzE5OTcsImp0aSI6ImVhNzllYmRkNTcyYTQ3MTE5YTE2NzUwNzJiNWQwYzgyIiwidXNlcl9pZCI6Mn0.fpGkh_NNGhDO6qXAjkNnUcLOlEepvU_gX-ubH1MErT4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/allprofiles/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"allprofiles",
+						""
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "a1@aaa.aaa",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/token/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "a1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/token/refresh/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "refresh",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcwODQ1MTkzOSwiaWF0IjoxNzA0MTMxOTM5LCJqdGkiOiIyMDcxMDcwYTdhY2E0MTNiYjEwZjM1YjQ2NzFlMzc5NiIsInVzZXJfaWQiOjJ9.beJ4hh-Qbg1zj6F-Y1e0K18knw44KvFi_T0cwE9LPNY",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/refresh/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						"refresh",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
