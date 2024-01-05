@@ -7,3 +7,4 @@ djangorestframework-simplejwt==5.3.1
 PyJWT==2.8.0
 pytz==2023.3.post1
 tzdata==2023.4
+django-cities-light==3.10.0
