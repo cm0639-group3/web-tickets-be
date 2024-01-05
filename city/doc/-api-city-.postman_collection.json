@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "373af2dc-e207-4c43-af6f-856961f17c34",
+		"name": "/api/city/",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32063073"
+	},
+	"item": [
+		{
+			"name": "api/city (Post)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0NDg2NTMyLCJpYXQiOjE3MDQ0NzU3MzIsImp0aSI6IjAyZWYyYTI1Y2U1MDQ0OGFiZDExMmNlZGFkZjZiYTJmIiwidXNlcl9pZCI6Mn0.937BCXVv5B9UomYZuHB7X207mWCOGuUNLr9CkkW5Ix4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "c2",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/city/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"city",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/city (List)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0MzE5MDU0LCJpYXQiOjE3MDQzMDgyNTQsImp0aSI6IjhjNjY4YTEwZjZkYzQ4MTA5NTI0ODBhYjZjNjY1NzQ5IiwidXNlcl9pZCI6Mn0.ez2lpstY4CIePItd4sAmOkwVTozvsyYvDKmPcl0VNRI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/city/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"city",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/city (List) w/ page_size",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0MzE5MDU0LCJpYXQiOjE3MDQzMDgyNTQsImp0aSI6IjhjNjY4YTEwZjZkYzQ4MTA5NTI0ODBhYjZjNjY1NzQ5IiwidXNlcl9pZCI6Mn0.ez2lpstY4CIePItd4sAmOkwVTozvsyYvDKmPcl0VNRI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/city?page_size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"city"
+					],
+					"query": [
+						{
+							"key": "page_size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/city (List) by country_id and/or country_code",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0MzE5MDU0LCJpYXQiOjE3MDQzMDgyNTQsImp0aSI6IjhjNjY4YTEwZjZkYzQ4MTA5NTI0ODBhYjZjNjY1NzQ5IiwidXNlcl9pZCI6Mn0.ez2lpstY4CIePItd4sAmOkwVTozvsyYvDKmPcl0VNRI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/city?country_code=IQ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"city"
+					],
+					"query": [
+						{
+							"key": "country_id",
+							"value": "110",
+							"disabled": true
+						},
+						{
+							"key": "country_code",
+							"value": "IQ"
+						},
+						{
+							"key": "page_size",
+							"value": "10",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/city (Get)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0MzE5MDU0LCJpYXQiOjE3MDQzMDgyNTQsImp0aSI6IjhjNjY4YTEwZjZkYzQ4MTA5NTI0ODBhYjZjNjY1NzQ5IiwidXNlcl9pZCI6Mn0.ez2lpstY4CIePItd4sAmOkwVTozvsyYvDKmPcl0VNRI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/city/21/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"city",
+						"21",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/city (Put)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0NDg2NTMyLCJpYXQiOjE3MDQ0NzU3MzIsImp0aSI6IjAyZWYyYTI1Y2U1MDQ0OGFiZDExMmNlZGFkZjZiYTJmIiwidXNlcl9pZCI6Mn0.937BCXVv5B9UomYZuHB7X207mWCOGuUNLr9CkkW5Ix4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "nn",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/city/3/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"city",
+						"3",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/city (Delete)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0NDg2NTMyLCJpYXQiOjE3MDQ0NzU3MzIsImp0aSI6IjAyZWYyYTI1Y2U1MDQ0OGFiZDExMmNlZGFkZjZiYTJmIiwidXNlcl9pZCI6Mn0.937BCXVv5B9UomYZuHB7X207mWCOGuUNLr9CkkW5Ix4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/city/3/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"city",
+						"3",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
