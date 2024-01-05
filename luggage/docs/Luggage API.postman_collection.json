@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "1dc4c122-d371-4d3c-821a-48d14d374471",
+		"name": "Luggage API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "479459"
+	},
+	"item": [
+		{
+			"name": "Read Luggage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/luggage",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"luggage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Luggage",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0NDczMzI0LCJpYXQiOjE3MDQ0NjI1MjQsImp0aSI6ImUwMTMxOTM4ODVkNzQ1N2ZhYjM0YmJmMjE3MDI2YjFhIiwidXNlcl9pZCI6MX0.TQDQgFzuAtYSetq_vRksiAPXz5nU34puXR3HzKRne-E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0NDczMzI0LCJpYXQiOjE3MDQ0NjI1MjQsImp0aSI6ImUwMTMxOTM4ODVkNzQ1N2ZhYjM0YmJmMjE3MDI2YjFhIiwidXNlcl9pZCI6MX0.TQDQgFzuAtYSetq_vRksiAPXz5nU34puXR3HzKRne-E",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Test Luggage\",\r\n    \"size\": 25,\r\n    \"unit\": \"kg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/luggage/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"luggage",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detail Luggage By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/luggage/2/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"luggage",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Luggage",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0NDczNTU0LCJpYXQiOjE3MDQ0NjI3NTQsImp0aSI6ImQ4NTllOWE0MTQ0MzRkZmNiMjczNzZmYmEzMmIxNDY3IiwidXNlcl9pZCI6MX0.iB9DCn4am7VSxsK--Yd6yX8nFJWZMz8gSzOWYQ3uhFA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Test Luggage\",\r\n    \"size\": 26,\r\n    \"unit\": \"kg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/luggage/2/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"luggage",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0NDczNTU0LCJpYXQiOjE3MDQ0NjI3NTQsImp0aSI6ImQ4NTllOWE0MTQ0MzRkZmNiMjczNzZmYmEzMmIxNDY3IiwidXNlcl9pZCI6MX0.iB9DCn4am7VSxsK--Yd6yX8nFJWZMz8gSzOWYQ3uhFA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/luggage/2/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"luggage",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
