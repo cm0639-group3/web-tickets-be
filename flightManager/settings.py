@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'country',
     'cities_light',
     # 'flight',
-    # 'luggage',
+    'luggage',
     # 'notification',
     # 'order',
     # 'roles',
