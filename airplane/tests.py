@@ -2,7 +2,7 @@ from sqlite3 import IntegrityError
 from django.db.utils import IntegrityError as DjangoIntegrityError 
 from django.test import TestCase
 from airline.models import Airline
-from country.models import Country
+from cities_light.models import Country
 from faker import Faker
 
 from .models import Airplane

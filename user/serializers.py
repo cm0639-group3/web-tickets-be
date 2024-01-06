@@ -14,6 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
             email=validated_data['email']
         )
         user.set_password(validated_data['password'])
+        user.role = validated_data['role']
         user.save()
         return user
     
@@ -35,6 +36,7 @@ class AdminSerializer(serializers.ModelSerializer):
             email=validated_data['email']
         )
         user.set_password(validated_data['password'])
+        user.role = validated_data['role']
         # user.is_staff = validated_data['is_staff']
         # user.is_superuser = validated_data['is_superuser']
         user.save()

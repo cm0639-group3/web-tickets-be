@@ -2,9 +2,9 @@ from django.test import TestCase
 from django.utils import timezone
 from datetime import timedelta
 from user.models import User
+from role.models import Role
 from flight.models import Flight
-from country.models import Country
-from city.models import City
+from cities_light.models import Country, City
 from airport.models import Airport
 from airline.models import Airline
 from airplane.models import Airplane
@@ -15,7 +15,9 @@ from faker import Faker
 class TicketTests(TestCase):
 
     def setUp(self):
-        self.user = User.objects.create_user(username='testuser', password='testpassword', is_staff=True)
+        self.role = Role.objects.get_or_create(name="authenticated")
+        self.user = User.objects.create_user(
+            username='testuser', password='testpassword', is_staff=True, role=self.role[0])
         
         
         self.flight_country = Country.objects.create(name="Antartida")
