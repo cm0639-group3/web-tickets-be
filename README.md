@@ -35,6 +35,12 @@ TBD
 > python manage.py makemigrations
 > python manage.py migrate
 
+# Populate the database (to import coutries and cites)
+> python manage.py cities_light
+
+# create a superuser
+> python manage.py createsuperuser
+
 # run server (admin interface should be available going to http://localhost:8000/admin)
 > python manage.py runserver
 ```

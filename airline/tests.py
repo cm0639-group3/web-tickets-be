@@ -1,5 +1,5 @@
 from django.test import TestCase
-from country.models import Country
+from cities_light.models import Country
 from cities_light.models import City
 from .models import Airline
 

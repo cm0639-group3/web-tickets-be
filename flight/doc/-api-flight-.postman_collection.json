@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "29ab07ce-96fe-4fab-a279-e352a46de0b5",
+		"name": "/api/flight/",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32063073"
+	},
+	"item": [
+		{
+			"name": "api/flight (Post)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "flight-1",
+							"type": "text"
+						},
+						{
+							"key": "departure_time",
+							"value": "2024-01-07T21:33:38Z",
+							"type": "text"
+						},
+						{
+							"key": "arrival_time",
+							"value": "2024-01-07T21:33:38Z",
+							"type": "text"
+						},
+						{
+							"key": "airplane",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "source_airport",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "destination_airport",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "luggage",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/flight/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"flight",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/flight (List) w/o filter",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/flight/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"flight",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/flight (List) w/ filter",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/flight/?airplane=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"flight",
+						""
+					],
+					"query": [
+						{
+							"key": "departure_time",
+							"value": "2024-01-07T21:33:38Z",
+							"disabled": true
+						},
+						{
+							"key": "arrival_time",
+							"value": "2024-01-07T21:33:38Z",
+							"disabled": true
+						},
+						{
+							"key": "airplane",
+							"value": "2"
+						},
+						{
+							"key": "source_airport",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "destination_airport",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/flight (Get)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/flight/2/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"flight",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/flight (Put)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "nn",
+							"type": "text"
+						},
+						{
+							"key": "departure_time",
+							"value": "2024-01-06T21:33:38Z",
+							"type": "text"
+						},
+						{
+							"key": "arrival_time",
+							"value": "2024-01-07T21:33:38Z",
+							"type": "text"
+						},
+						{
+							"key": "airplane",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "source_airport",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "destination_airport",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "luggage",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/flight/3/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"flight",
+						"3",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/flight (Delete)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/flight/3/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"flight",
+						"3",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

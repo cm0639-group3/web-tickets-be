@@ -4,8 +4,7 @@ from airport.models import Airport
 from airplane.models import Airplane
 from luggage.models import Luggage
 from airline.models import Airline
-from city.models import City
-from country.models import Country
+from cities_light.models import Country, City
 from faker import Faker
 from datetime import timedelta
 from .models import Flight
