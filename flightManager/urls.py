@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path as url
 from rest_framework_simplejwt import views as jwt_views
 
 urlpatterns = [
@@ -23,8 +23,7 @@ urlpatterns = [
     path('api/user/', include('user.urls')),
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),  
-    path('api/country/', include('country.urls')),  
-    path('api/city/', include('city.urls')),
+    url(r'^cities_light/api/', include('cities_light.contrib.restframework3')), 
     path('api/airport/', include('airport.urls')),
     path('api/luggage/', include('luggage.urls')),
     path('api/role/', include('role.urls')),
