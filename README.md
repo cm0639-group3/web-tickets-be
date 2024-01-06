@@ -20,7 +20,10 @@
 > pip install -r requirements.txt
 # setup pre-commit hooks (consistent environment)
 > pre-commit install
->
+
+# rename sample env file and assign an environment key
+# to run the project
+> mv .env.sample .env
 ```
 
 ## Installation (docker)
@@ -35,7 +38,7 @@ TBD
 > python manage.py makemigrations
 > python manage.py migrate
 
-# Populate the database (to import coutries and cites)
+# Populate the database (to import countries and cites)
 > python manage.py cities_light
 
 # create a superuser
