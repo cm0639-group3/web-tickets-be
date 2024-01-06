@@ -179,7 +179,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer ", 
+						"value": "Bearer ",
 						"type": "text"
 					}
 				],

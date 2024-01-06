@@ -1,7 +1,8 @@
 from rest_framework import permissions
 
+
 class LuggagePermissions(permissions.BasePermission):
-    def has_permission(self, request, view) :
+    def has_permission(self, request, view):
         if view.action == "create":
             return request.user.is_authenticated and request.user.is_staff
         if view.action == "list":

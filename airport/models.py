@@ -1,5 +1,7 @@
-from django.db import models
 from cities_light.models import City
+from django.db import models
+
+
 class Airport(models.Model):
     name = models.CharField(max_length=255)
     code = models.CharField(max_length=3)

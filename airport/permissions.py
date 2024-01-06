@@ -1,7 +1,8 @@
 from rest_framework import permissions
 
+
 class CustomPermissions_1(permissions.BasePermission):
-    def has_permission(self, request, view) :        
+    def has_permission(self, request, view):
         # CRUD
         # Create
         if view.action == "create":
