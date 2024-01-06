@@ -44,15 +44,13 @@ INSTALLED_APPS = [
     'airplane',
     'airport',
     # 'cart',
-    'city',
-    'country',
     'cities_light',
     'flight',
     'luggage',
     # 'notification',
     # 'order',
     'role',
-    # 'ticket',
+    'ticket',
     'user',
 ]
 

@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from .models import Flight
 from .serializers import FlightSerializer
-from .permissions import CustomPermissions_1
+from .permissions import FlightPermissions
 
 import operator
 from django.db.models import Q
@@ -11,7 +11,7 @@ from datetime import datetime
 class FlightViewSet(viewsets.ModelViewSet):
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
-    permission_classes = [CustomPermissions_1,]
+    permission_classes = [FlightPermissions,]
 
     def get_queryset(self):
         q_list = []

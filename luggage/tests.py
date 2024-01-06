@@ -2,8 +2,8 @@ from django.test import TestCase
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
-from .views import Luggage
 from .models import Luggage
+from role.models import Role
 from rest_framework.authtoken.models import Token
 from user.models import User
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -11,7 +11,9 @@ from rest_framework_simplejwt.tokens import RefreshToken
 class LuggageTests(APITestCase):
 
     def setUp(self):
-        self.user = User.objects.create_user(username='testuser', password='testpassword', is_staff=True)
+        self.role = Role.objects.get_or_create(name="authenticated")
+        self.user = User.objects.create_user(
+            username='testuser', password='testpassword', is_staff=True, role=self.role[0])
         self.client.force_login(self.user)
         self.token = RefreshToken.for_user(self.user)
         self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + str(self.token.access_token))
