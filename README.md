@@ -20,7 +20,7 @@
 > pip install -r requirements.txt
 # setup pre-commit hooks (consistent environment)
 > pre-commit install
->
+
 ```
 
 ## Installation (docker)
