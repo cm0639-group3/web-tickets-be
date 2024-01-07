@@ -9,7 +9,7 @@ from .permissions import AirlinePermissions
 class AirlineViewSet(viewsets.ModelViewSet):
     queryset = Airline.objects.all()
     serializer_class = AirlineSerializer
-    ordering_fields = ['name', 'country']
+    ordering_fields = ['name', 'country__code2']
     filterset_class = AirlineFilter
     filter_backends = (filters.DjangoFilterBackend, OrderingFilter,)
     permission_classes = [AirlinePermissions]

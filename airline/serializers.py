@@ -1,9 +1,10 @@
 from rest_framework import serializers
 from cities_light.models import Country
+from common.case_insensitive_slug_field import CaseInsensitiveSlugRelatedField
 from .models import Airline
 
 class AirlineSerializer(serializers.ModelSerializer):
-    country = serializers.SlugRelatedField(
+    country = CaseInsensitiveSlugRelatedField(
         slug_field='code2',
         queryset=Country.objects.all(),
         error_messages={
@@ -12,4 +13,4 @@ class AirlineSerializer(serializers.ModelSerializer):
     )
     class Meta:
         model = Airline
-        fields = ('id', 'name', 'country')
+        fields = ['id', 'name', 'country']

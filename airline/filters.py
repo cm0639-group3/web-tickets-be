@@ -6,5 +6,5 @@ class AirlineFilter(filters.FilterSet):
         model = Airline
         fields = {
             'name': ['icontains'],
-            'country__name': ['icontains']
+            'country__code2': ['icontains']
         }
