@@ -1,0 +1,26 @@
+[
+    {
+        "model": "cities_light.country",
+        "pk": 1,
+        "fields": {
+            "name_ascii": "Turkey",
+            "slug": "turkey",
+            "code2": "TR",
+            "code3": "TUR",
+            "continent": "AS",
+            "name": "Turkey"
+        }
+    },
+    {
+        "model": "cities_light.country",
+        "pk": 2,
+        "fields": {
+            "name_ascii": "Saint Lucia",
+            "slug": "saint-lucia",
+            "code2": "LC",
+            "code3": "LCA",
+            "continent": "NA",
+            "name": "Saint Lucia"
+        }
+    }
+  ]

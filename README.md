@@ -42,8 +42,26 @@ TBD
 > python manage.py cities_light
 
 # create a superuser
-> python manage.py createsuperuser
+# add base config as shown in .env.sample to configure the superuser
+> python manage.py createsuperuser --noinput
 
 # run server (admin interface should be available going to http://localhost:8000/admin)
 > python manage.py runserver
 ```
+
+### Testing API using OpenAPI Spec
+
+1. To visualize the OpenAPI spec go to http://localhost:8000/swagger
+
+![OpenAPI Home](https://github.com/cm0639-group3/web-tickets-be/blob/main/docs/open-api-home.png)
+
+2. Some requests are protected using a JWT authentication token. To generate one,
+go to the api endpoint and generate one with the *superuser created previously.*
+
+![Generate a new token](https://github.com/cm0639-group3/web-tickets-be/blob/main/docs/open-api-request-token.png)
+
+3. Go to the top of the page and select the authorize button
+![Select top-level authorize](https://github.com/cm0639-group3/web-tickets-be/blob/main/docs/open-api-select-authorize-button.png)
+
+4. Enter the token preceded by a `Bearer` keyword.
+![Set token](https://github.com/cm0639-group3/web-tickets-be/blob/main/docs/open-api-set-token.png)

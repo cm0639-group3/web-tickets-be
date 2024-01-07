@@ -41,13 +41,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'drf_yasg',
     'rest_framework',
     'rest_framework.authtoken',
+    'django_filters',
     'airline',
     'airplane',
     'airport',
     # 'cart',
     'cities_light',
+    'country',
     'flight',
     'luggage',
     # 'notification',
@@ -74,12 +77,16 @@ AUTH_USER_MODEL = 'user.User'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-        # 'rest_framework.authentication.TokenAuthentication',
+        #'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-    'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAuthenticated',
     ],
-    # Other settings...
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 100
 }
 
 
@@ -189,3 +196,16 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CITIES_LIGHT_TRANSLATION_LANGUAGES = ['en']
+CITIES_LIGHT_INCLUDE_CITY_TYPES = ['PPL']
+
+SWAGGER_SETTINGS = {
+   'SECURITY_DEFINITIONS': {
+      'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+      }
+   }
+}
