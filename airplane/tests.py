@@ -10,7 +10,7 @@ from airline.models import Airline
 from cities_light.models import Country
 from faker import Faker
 from django.urls import reverse
-
+from django.forms.models import model_to_dict
 from .models import Airplane
 
 class AirplaneTests(TestCase):
@@ -60,8 +60,10 @@ class AirplaneAPITests(APITestCase):
         self.token = RefreshToken.for_user(self.user)
         self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + str(self.token.access_token))
 
-        self.airplane_data = {'name': 'Boeing 757', 'seats': 150, 'model_number': 'BUS W1', 'airline': 1}
-        self.second_airplane_data = {'name': 'AWT 7', 'seats': 80, 'model_number': 'A1', 'airline': 2}
+        self.airline_turkish = model_to_dict(Airline.objects.get(name='Turkish airlines'))
+        self.airline_avianca = model_to_dict(Airline.objects.get(name='Avianca'))
+        self.airplane_data = {'name': 'Boeing 757', 'seats': 150, 'model_number': 'BUS W1', 'airline': self.airline_turkish}
+        self.second_airplane_data = {'name': 'AWT 7', 'seats': 80, 'model_number': 'A1', 'airline': self.airline_avianca}
 
     def tearDown(self):
         self.client.logout()
