@@ -1,0 +1,139 @@
+[
+    {
+        "model": "cities_light.country",
+        "pk": 1,
+        "fields": {
+            "name_ascii": "Belgium",
+            "slug": "belgium",
+            "code2": "BE",
+            "code3": "BEL",
+            "continent": "EU",
+            "name": "Belgium"
+        }
+    },
+    {
+        "model": "cities_light.country",
+        "pk": 2,
+        "fields": {
+            "name_ascii": "Argentina",
+            "slug": "argentina",
+            "code2": "AR",
+            "code3": "ARG",
+            "continent": "SA",
+            "name": "Argentina"
+        }
+    },
+    {
+        "model": "cities_light.city",
+        "pk": 1,
+        "fields": {
+            "name_ascii": "Arroyito",
+            "slug": "arroyito",
+            "country_id": 2
+        }
+    },
+    {
+        "model": "cities_light.city",
+        "pk": 2,
+        "fields": {
+            "name_ascii": "Sint-Andries",
+            "slug": "sint-andries",
+            "country_id": 1
+        }
+    },
+    {
+        "model": "airline.airline",
+        "pk": 1,
+        "fields": {
+            "name": "Turkish airlines",
+            "country_id": 1
+        }
+    },
+    {
+        "model": "airline.airline",
+        "pk": 2,
+        "fields": {
+            "name": "Avianca",
+            "country_id": 2
+        }
+    },
+    {
+        "model": "airplane.airplane",
+        "pk": 1,
+        "fields": {
+            "name": "AWB A3",
+            "seats": 180,
+            "model_number": "BERT1",
+            "airline_id": 2
+        }
+    },
+    {
+        "model": "airport.airport",
+        "pk": 1,
+        "fields": {
+            "name": "Arroyito Airport",
+            "code": "AR3",
+            "city_id": 1
+        }
+    },
+    {
+        "model": "airport.airport",
+        "pk": 2,
+        "fields": {
+            "name": "Sint-Andries Airport",
+            "code": "BE5",
+            "city_id": 2
+        }
+    },
+    {
+        "model": "luggage.luggage",
+        "pk": 2,
+        "fields": {
+            "name": "small",
+            "size": 2,
+            "unit": "kg"
+        }
+    },
+    {
+        "model": "flight.flight",
+        "pk": 1,
+        "fields": {
+            "name": "BEL-ARG",
+            "departure_time": "2024-09-01T13:20:30+03:00",
+            "arrival_time": "2024-09-02T13:20:30+03:00",
+            "airplane_id": 1,
+            "destination_airport_id": 1,
+            "source_airport_id": 2,
+            "luggage_id": 2
+        }
+    },
+    {
+        "model": "flight.flight",
+        "pk": 2,
+        "fields": {
+            "name": "ARG-BEL",
+            "departure_time": "2024-10-01T13:20:30+03:00",
+            "arrival_time": "2024-10-02T13:20:30+03:00",
+            "airplane_id": 1,
+            "destination_airport_id": 2,
+            "source_airport_id": 1,
+            "luggage_id": 2
+        }
+    },
+    {
+        "model": "role.role",
+        "pk": 2,
+        "fields": {
+            "name": "Reader"
+        }
+    },
+    {
+        "model": "user.user",
+        "pk": 1,
+        "fields": {
+            "username": "tourist",
+            "email": "t@t.dev",
+            "role_id": 2
+        }
+    }
+  ]

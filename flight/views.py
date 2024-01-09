@@ -1,5 +1,8 @@
 from rest_framework import viewsets
 from .models import Flight
+from rest_framework.filters import OrderingFilter
+from django_filters import rest_framework as filters
+from .filters import FlightFilter
 from .serializers import FlightSerializer
 from .permissions import FlightPermissions
 
@@ -11,6 +14,9 @@ from datetime import datetime
 class FlightViewSet(viewsets.ModelViewSet):
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
+    ordering_fields = ['name', 'departure_time', 'arrival_time']
+    filterset_class = FlightFilter
+    filter_backends = (filters.DjangoFilterBackend, OrderingFilter,)
     permission_classes = [FlightPermissions,]
 
     def get_queryset(self):
@@ -19,7 +25,7 @@ class FlightViewSet(viewsets.ModelViewSet):
         airplane = self.request.query_params.get('airplane', None)
         if airplane:
             q_list.append(Q(airplane=airplane))
-        
+
         source_airport = self.request.query_params.get('source_airport', None)
         if source_airport:
             q_list.append(Q(source_airport=source_airport))
@@ -29,7 +35,7 @@ class FlightViewSet(viewsets.ModelViewSet):
             q_list.append(Q(destination_airport=destination_airport))
 
         departure_time = self.request.query_params.get('departure_time', None)
-        if departure_time:            
+        if departure_time:
             try:
                 departure_datetime = datetime.fromisoformat(departure_time.rstrip("Z"))
             except ValueError:

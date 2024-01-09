@@ -9,9 +9,11 @@ class Flight(models.Model):
     arrival_time = models.DateTimeField()
 
     airplane = models.ForeignKey(Airplane, on_delete=models.CASCADE)
-    source_airport = models.ForeignKey(Airport, on_delete=models.CASCADE , related_name='source_airport')
-    destination_airport = models.ForeignKey(Airport, on_delete=models.CASCADE , related_name='destination_airport')
-    luggage = models.ForeignKey(Luggage, on_delete=models.CASCADE , null = True) 
+    source_airport = models.ForeignKey(
+        Airport, on_delete=models.CASCADE , related_name='source_airport')
+    destination_airport = models.ForeignKey(
+        Airport, on_delete=models.CASCADE , related_name='destination_airport')
+    luggage = models.ForeignKey(Luggage, on_delete=models.CASCADE , null = True)
 
     def clean(self):
         if self.departure_time and self.arrival_time and self.departure_time >= self.arrival_time:

@@ -10,7 +10,6 @@ from airline.models import Airline
 from cities_light.models import Country
 from faker import Faker
 from django.urls import reverse
-from django.forms.models import model_to_dict
 from .models import Airplane
 
 class AirplaneTests(TestCase):
@@ -51,6 +50,7 @@ class AirplaneTests(TestCase):
 
 class AirplaneAPITests(APITestCase):
     fixtures = ['airplane/fixtures/initial_data.json']
+    BOEING_AIRPLANE_NAME = 'Boeing 757'
 
     def setUp(self):
         self.role = Role.objects.get_or_create(name="authenticated")
@@ -60,10 +60,20 @@ class AirplaneAPITests(APITestCase):
         self.token = RefreshToken.for_user(self.user)
         self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + str(self.token.access_token))
 
-        self.airline_turkish = model_to_dict(Airline.objects.get(name='Turkish airlines'))
-        self.airline_avianca = model_to_dict(Airline.objects.get(name='Avianca'))
-        self.airplane_data = {'name': 'Boeing 757', 'seats': 150, 'model_number': 'BUS W1', 'airline': self.airline_turkish}
-        self.second_airplane_data = {'name': 'AWT 7', 'seats': 80, 'model_number': 'A1', 'airline': self.airline_avianca}
+        self.airline_turkish = Airline.objects.get(name='Turkish airlines')
+        self.airline_avianca = Airline.objects.get(name='Avianca')
+        self.airplane_data = {
+            'name': self.BOEING_AIRPLANE_NAME,
+            'seats': 150,
+            'model_number': 'BUS W1',
+            'airline': self.airline_turkish.id
+        }
+        self.second_airplane_data = {
+            'name': 'AWT 7',
+            'seats': 80,
+            'model_number': 'A1',
+            'airline': self.airline_avianca.id
+        }
 
     def tearDown(self):
         self.client.logout()
@@ -77,7 +87,7 @@ class AirplaneAPITests(APITestCase):
         self.assertEqual(response_with_pagination.status_code, status.HTTP_200_OK)
         response = response_with_pagination.data['results']
         self.assertEqual(len(response), 1)
-        self.assertEqual(response[0]['name'], 'Boeing 757')
+        self.assertEqual(response[0]['name'], self.BOEING_AIRPLANE_NAME)
 
     def test_read_airplane_with_pagination(self):
         # create airplane
@@ -91,7 +101,7 @@ class AirplaneAPITests(APITestCase):
         self.assertEqual(response_with_pagination.data['previous'], None)
         response = response_with_pagination.data['results']
         self.assertEqual(len(response), 1)
-        self.assertEqual(response[0]['name'], 'Boeing 757')
+        self.assertEqual(response[0]['name'], self.BOEING_AIRPLANE_NAME)
 
     def test_read_airplane_with_ordering(self):
         # create airplane
@@ -108,9 +118,9 @@ class AirplaneAPITests(APITestCase):
 
         response = response_ordered.data['results']
         self.assertEqual(response[0]['name'], 'AWT 7')
-        self.assertEqual(response[1]['name'], 'Boeing 757')
+        self.assertEqual(response[1]['name'], self.BOEING_AIRPLANE_NAME)
 
-    def test_update_airplane(self):
+    def test_partial_update_airplane(self):
         # create airplane
         self.client.post(reverse('airplane-list'), self.airplane_data, format='json')
         # read airplane
