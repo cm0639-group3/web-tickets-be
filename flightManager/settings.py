@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'flight',
     'luggage',
     # 'notification',
-    # 'order',
+    'order',
     'role',
     'ticket',
     'user',

@@ -6,7 +6,6 @@ from user.models import User
 from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.urls import reverse
-from django.forms.models import model_to_dict
 from .models import Airline
 
 class AirlineTests(TestCase):
@@ -39,10 +38,10 @@ class AirlineAPITests(APITestCase):
         self.token = RefreshToken.for_user(self.user)
         self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + str(self.token.access_token))
 
-        self.country_turkey = model_to_dict(Country.objects.get(code2='TR'))
-        self.country_st_lucia = model_to_dict(Country.objects.get(code2='LC'))
-        self.airline_data = {'name': 'Turkish Airlines', 'country': self.country_turkey}
-        self.second_airline_data = {'name': 'Saint Lucia Airlines', 'country': self.country_st_lucia}
+        self.country_turkey = Country.objects.get(code2='TR')
+        self.country_st_lucia = Country.objects.get(code2='LC')
+        self.airline_data = {'name': 'Turkish Airlines', 'country': self.country_turkey.id}
+        self.second_airline_data = {'name': 'Saint Lucia Airlines', 'country': self.country_st_lucia.id}
 
     def tearDown(self):
         self.client.logout()
@@ -98,7 +97,7 @@ class AirlineAPITests(APITestCase):
         airline = response_filter.data['results'][0]
 
         # update
-        updated_data =  {'name': 'Turkish Airlines (Nouveau)'}
+        updated_data =  {'name': 'Turkish Airlines (Nouveau)', 'country': self.country_turkey.id}
         response = self.client.put(reverse('airline-detail', args=[airline['id']]), updated_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(Airline.objects.get().name, 'Turkish Airlines (Nouveau)')
