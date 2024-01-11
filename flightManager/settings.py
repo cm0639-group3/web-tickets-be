@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'airline',
     'airplane',
     'airport',
-    # 'cart',
+    'cart',
     'cities_light',
     'country',
     'flight',

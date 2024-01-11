@@ -1,0 +1,44 @@
+[
+    {
+        "model": "cities_light.country",
+        "pk": 1,
+        "fields": {
+            "name_ascii": "Belgium",
+            "slug": "belgium",
+            "code2": "BE",
+            "code3": "BEL",
+            "continent": "EU",
+            "name": "Belgium"
+        }
+    },
+    {
+        "model": "cities_light.country",
+        "pk": 2,
+        "fields": {
+            "name_ascii": "Argentina",
+            "slug": "argentina",
+            "code2": "AR",
+            "code3": "ARG",
+            "continent": "SA",
+            "name": "Argentina"
+        }
+    },
+    {
+        "model": "cities_light.city",
+        "pk": 1,
+        "fields": {
+            "name_ascii": "Pontevedra",
+            "slug": "pontevedra",
+            "country_id": 1
+        }
+    },
+    {
+        "model": "cities_light.city",
+        "pk": 2,
+        "fields": {
+            "name_ascii": "Sint-Andries",
+            "slug": "sint-andries",
+            "country_id": 2
+        }
+    }
+  ]

@@ -53,6 +53,8 @@ urlpatterns = [
     path('api/airplane/', include('airplane.urls')),
     path('api/flight/', include('flight.urls')),
     path('api/order/', include('order.urls')),
+    path('api/ticket/', include('ticket.urls')),
+    path('api/cart/', include('cart.urls')),
 ]
 
 if not IS_CI:
