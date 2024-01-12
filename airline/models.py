@@ -1,10 +1,10 @@
 from django.db import models
 from cities_light.models import Country
-from cities_light.models import City
+
+
 class Airline(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
-    city = models.ForeignKey(City, on_delete=models.CASCADE)
-        
+
     def __str__(self):
-        return f'Airline {self.id} - Name: {self.name}, Country: {str(self.country)}, City: {str(self.city)}'
+        return f'Airline {self.id} - Name: {self.name}, Country: {str(self.country)}'

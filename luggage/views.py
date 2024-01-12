@@ -1,23 +1,17 @@
 from rest_framework import viewsets
-from rest_framework.response import Response
+from rest_framework.filters import OrderingFilter
+from django_filters import rest_framework as filters
 from .models import Luggage
-from rest_framework import status
+from .filters import LuggageFilter
 from .serializers import LuggageSerializer
 from .permissions import LuggagePermissions
 
 class LuggageViewSet(viewsets.ModelViewSet):
     queryset = Luggage.objects.all()
     serializer_class = LuggageSerializer
+    ordering_fields = ['name', 'unit', 'size']
+
+    filterset_class = LuggageFilter
+    filter_backends = (filters.DjangoFilterBackend, OrderingFilter,)
+
     permission_classes = [LuggagePermissions]
-
-    def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-
-    def retrieve(self, request, *args, **kwargs):
-        instance = self.get_object()
-        serializer = self.get_serializer(instance)
-        return Response(serializer.data)
