@@ -1,0 +1,10 @@
+.pre-commit-config.yaml
+modelsList.txt
+README.md
+.git
+db.sqlite3
+.gitignore
+.github/
+doc/
+docs/
+venv/
