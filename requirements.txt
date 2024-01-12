@@ -14,3 +14,4 @@ django-filter==23.5
 drf-yasg==1.21.7
 pre-commit==3.6.0
 setuptools==69.0.3
+psycopg2==2.9.9
