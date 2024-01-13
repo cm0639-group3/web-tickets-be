@@ -11,6 +11,12 @@ from django.db.models import Q
 from functools import reduce
 from datetime import datetime
 
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework import status, viewsets
+from ticket.models import Ticket
+from ticket.serializers import TicketSerializer
+
 class FlightViewSet(viewsets.ModelViewSet):
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
@@ -69,3 +75,25 @@ class FlightViewSet(viewsets.ModelViewSet):
             queryset = Flight.objects.all()
 
         return queryset
+    
+        
+    @action(detail=True, methods=['get'])
+    def current_price(self, request, pk=None):
+        flight = self.get_object()
+        return Response({f'current price = {flight.current_price}'}, status=status.HTTP_200_OK)
+
+    @action(detail=True, methods=['post'])
+    def add_to_cart(self, request, pk=None):
+        user = request.user
+        flight = self.get_object()
+
+        # # Assuming the user cannot add the same flight to the cart more than once
+        # if Ticket.objects.filter(user=user, flight=flight, is_purchased=False).exists():
+        #     return Response({'message': 'This flight is already in your cart'}, status=status.HTTP_400_BAD_REQUEST)
+        if flight.remaining_seats <= 0:
+            return Response({'status': 'failed' , 'message': 'No tickets available'}, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            ticket = Ticket.objects.create(user=user, flight=flight, is_purchased=False)
+            serializer = TicketSerializer(ticket)
+            return Response({'status': 'success' , 'message': 'Ticket added to cart successfully', 'ticket': serializer.data}, status=status.HTTP_200_OK)
+
