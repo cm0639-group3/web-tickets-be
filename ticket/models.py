@@ -2,26 +2,32 @@ from django.db import models
 from flight.models import Flight
 from order.models import Order
 from cart.models import Cart
+from user.models import User
+from django.utils import timezone
 
 class Ticket(models.Model):
-    class TicketType(models.TextChoices):
-        SINGLE_TRIP = "SINGLE_TRIP"
-        ROUND_TRIP = "ROUND_TRIP"
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    flight = models.ForeignKey(Flight, on_delete=models.CASCADE)
+    is_purchased = models.BooleanField(default=False)
+    final_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    purchased_at = models.DateTimeField(null=True, blank=True)
 
-    status = models.BooleanField(default=False)
-    receipt_id = models.CharField(max_length = 12, default="")
-    flights = models.ManyToManyField(Flight)
+    @property
+    def current_price(self):
+        return self.flight.current_price
+        
+    @property
+    def is_available(self):
+        return self.flight.remaining_seats > 0
 
-    type = models.CharField(
-        max_length=11,
-        choices=TicketType,
-        default=TicketType.ROUND_TRIP
-    )
-    price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    quantity = models.IntegerField(default=1)
-
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, null=True)
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, null=True)
+    def buy(self):
+        if not self.is_purchased:
+            self.final_price = self.current_price
+            self.is_purchased = True
+            self.purchased_at = timezone.now()
+            self.flight.buy_ticket()
+            self.save()
 
     def __str__(self):
-        return f'Ticket {self.id} - Status: {self.status}, Flight: {str(self.flights)}, User: {str(self.user)}, Type: {str(self.type)}, Price: {str(self.price)}'
+        return f'Ticket {self.id} , Flight: {str(self.flight)}, User: {str(self.user)}, current_price: {str(self.current_price)}'
+
