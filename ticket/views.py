@@ -44,5 +44,4 @@ class TicketViewSet(viewsets.ModelViewSet):
         
     @action(detail=True, methods=['get'])
     def current_price(self, request, pk=None):
-        flight = self.get_object().flight
-        return Response({f'current price = {flight.current_price}'}, status=status.HTTP_200_OK)
+        return Response({f'current price = {self.current_price}'}, status=status.HTTP_200_OK)

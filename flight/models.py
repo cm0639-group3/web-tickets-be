@@ -13,19 +13,14 @@ class Flight(models.Model):
         Airport, on_delete=models.CASCADE , related_name='source_airport')
     destination_airport = models.ForeignKey(
         Airport, on_delete=models.CASCADE , related_name='destination_airport')
-    luggage = models.ForeignKey(Luggage, on_delete=models.CASCADE , null = True)
-
+    
     remaining_seats = models.IntegerField(default=10)
     seats = models.IntegerField(default=10)
+    distance = models.IntegerField()
 
     def clean(self):
         if self.departure_time and self.arrival_time and self.departure_time >= self.arrival_time:
             raise ValueError("Departure time must be before arrival time.")
-
-    ## -2cL
-    # def save(self, *args, **kwargs):
-    #     self.clean()
-    #     super().save(*args, **kwargs)
 
     def save(self, *args, **kwargs):
         if not self.pk:  # Check if the object is being created
@@ -41,11 +36,12 @@ class Flight(models.Model):
 
     @property
     def current_price(self):
-        # # a calculation strategy based on remaining seats, it can also been based on remaining days.
+        ## an example of price calculation strategy based on remaining seats, it can also been based on remaining days.
+        ## this price without luggage
         if self.remaining_seats < 10:
             return 150.00  # Higher price if fewer seats are remaining
         else:
             return 100.00  # Lower price if more seats are available
         
     def __str__(self):
-        return f'Flight {self.id} - Name: {self.name}, Departure: {str(self.departure_time)}, Arrival: {str(self.arrival_time)}, Airplane: {str(self.airplane)}, Source: {str(self.source_airport)}, Destination: {str(self.destination_airport)}, Luggage: {str(self.luggage)}'
+        return f'Flight {self.id} - Name: {self.name}, Departure: {str(self.departure_time)}, Arrival: {str(self.arrival_time)}, Airplane: {str(self.airplane)}, Source: {str(self.source_airport)}, Destination: {str(self.destination_airport)}'
