@@ -4,6 +4,7 @@ from order.models import Order
 from cart.models import Cart
 from user.models import User
 from django.utils import timezone
+from luggage.models import Luggage
 
 class Ticket(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -11,10 +12,18 @@ class Ticket(models.Model):
     is_purchased = models.BooleanField(default=False)
     final_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     purchased_at = models.DateTimeField(null=True, blank=True)
+    luggage = models.ForeignKey(Luggage, on_delete=models.CASCADE, default=1, blank=True)
+    
 
     @property
     def current_price(self):
-        return self.flight.current_price
+        ## an example of price calculation strategy based on remaining seats, it can also been based on remaining days.
+        ## also including the luggage price which calculated based on the luggage size and the flight distance.
+        price_without_luggage = self.flight.current_price
+        lagguge_price = 0
+        if self.luggage.size != 0:            
+            lagguge_price = self.flight.distance * self.luggage.size / 1000
+        return price_without_luggage + lagguge_price 
         
     @property
     def is_available(self):
