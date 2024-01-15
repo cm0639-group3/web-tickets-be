@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from role.models import Role
 # Create your models here.
 class User(AbstractUser):
-    role = models.ForeignKey(Role, on_delete=models.CASCADE , default="1")
+    role = models.ForeignKey(Role, on_delete=models.CASCADE ,  null=True, blank=True)
     email = models.EmailField(unique=True)
 
     def __str__(self):
