@@ -43,5 +43,9 @@ class Flight(models.Model):
         else:
             return 100.00  # Lower price if more seats are available
         
+    @property
+    def is_available(self):
+        return self.remaining_seats > 0
+        
     def __str__(self):
         return f'Flight {self.id} - Name: {self.name}, Departure: {str(self.departure_time)}, Arrival: {str(self.arrival_time)}, Airplane: {str(self.airplane)}, Source: {str(self.source_airport)}, Destination: {str(self.destination_airport)}'

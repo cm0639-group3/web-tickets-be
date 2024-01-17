@@ -16,6 +16,7 @@ from rest_framework.response import Response
 from rest_framework import status, viewsets
 from ticket.models import Ticket
 from ticket.serializers import TicketSerializer
+from luggage.models import Luggage
 
 class FlightViewSet(viewsets.ModelViewSet):
     queryset = Flight.objects.all()
@@ -84,8 +85,8 @@ class FlightViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['post'])
     def add_to_cart(self, request, pk=None):
-        user = request.user
-        flight = self.get_object()
+        user = request.user        
+        flight = self.get_object()        
 
         # # Assuming the user cannot add the same flight to the cart more than once
         # if Ticket.objects.filter(user=user, flight=flight, is_purchased=False).exists():
@@ -93,7 +94,18 @@ class FlightViewSet(viewsets.ModelViewSet):
         if flight.remaining_seats <= 0:
             return Response({'status': 'failed' , 'message': 'No tickets available'}, status=status.HTTP_400_BAD_REQUEST)
         else:
-            ticket = Ticket.objects.create(user=user, flight=flight, is_purchased=False)
+            luggage_id = request.data.get('luggage')
+            if luggage_id:
+                luggage = Luggage.objects.get(id=luggage_id)
+            else:
+                luggage = Luggage.objects.get(id=1)         ## default luggage (eg, without luggage)
+            
+            ticket = Ticket.objects.create(user=user, flight=flight, is_purchased=False , luggage=luggage)
             serializer = TicketSerializer(ticket)
             return Response({'status': 'success' , 'message': 'Ticket added to cart successfully', 'ticket': serializer.data}, status=status.HTTP_200_OK)
 
+
+    def get_serializer_context(self):
+        context = super(FlightViewSet, self).get_serializer_context()
+        context['luggage'] = self.request.query_params.get('luggage')
+        return context
