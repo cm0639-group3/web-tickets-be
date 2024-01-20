@@ -7,6 +7,7 @@ class FlightSerializer(serializers.ModelSerializer):
     class Meta:
         model = Flight
         fields = '__all__'
+        extra_kwargs = {'base_price': {'required': True}} 
 
     current_price = serializers.SerializerMethodField()
     is_available = serializers.SerializerMethodField()
