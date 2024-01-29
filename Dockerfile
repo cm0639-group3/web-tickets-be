@@ -1,16 +1,15 @@
-FROM python:3.11-alpine
+FROM python:3.11
 
-COPY requirements.txt src/app/requirements.txt
-COPY . src/app
-COPY docker/docker-entrypoint.sh src/app/docker-entrypoint.sh
-WORKDIR /src/app
-RUN \
- apk add --no-cache postgresql-libs && \
- apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev && \
- python3 -m pip install -r requirements.txt --no-cache-dir && \
- apk --purge del .build-deps
-RUN chmod +x docker-entrypoint.sh
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+RUN mkdir /code
+WORKDIR /code
+RUN pip install --upgrade pip
+COPY requirements.txt /code/
+
+RUN pip install -r requirements.txt
+COPY . /code/
 
 EXPOSE 8000
 
-CMD ["./docker-entrypoint.sh"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
