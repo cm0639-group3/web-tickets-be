@@ -24,7 +24,7 @@ class Ticket(models.Model):
         luggage_price = 0
         if self.luggage.size != 0:
             luggage_price = self.flight.distance * Decimal(self.luggage.size) / 1000
-        return price_without_luggage + luggage_price
+        return Decimal(price_without_luggage) + luggage_price
 
     @property
     def is_available(self):
