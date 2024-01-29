@@ -65,3 +65,11 @@ go to the api endpoint and generate one with the *superuser created previously.*
 
 4. Enter the token preceded by a `Bearer` keyword.
 ![Set token](https://github.com/cm0639-group3/web-tickets-be/blob/main/docs/open-api-set-token.png)
+
+
+## Docker
+1. There is a Dockerfile in the root folder, which is used to build the image and up the container.
+   Install Docker if you haven't already.
+2. To build an image, you need to run `docker build` in the root of the project.
+    - run `docker build -t sa/web.tickets-be:latest .` to create the image
+    - run `docker run -p 8000:8000 sa/web.tickets-be:latest` to up the container
